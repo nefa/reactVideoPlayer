@@ -1,0 +1,6 @@
+//-> request a url with a video 
+//-> have video contaier to play the video
+// interface buttons
+play/pause speed 10++ 
+
+timeline maybe ?
