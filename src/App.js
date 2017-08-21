@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
+import { partial } from 'lodash';
 // import logo from './logo.svg';
 import './App.css';
 import vs from './videoService';
@@ -28,6 +29,16 @@ class VideoContainerCpt extends Component {
 
     this._video = null;
     this._seekInput = null;
+
+
+  }
+
+  componentWillMount() {
+    this.togglePlay = this.togglePlay.bind(this);
+    this.videoSpeed = this.videoSpeed.bind(this);
+    this.seek = this.seek.bind(this);
+    this.resize = this.resize.bind(this);
+    this.fullscreen = this.fullscreen.bind(this);
   }
 
   componentDidMount() {
@@ -90,10 +101,10 @@ class VideoContainerCpt extends Component {
         {this.renderVideoContainer(attrs) || <span>spinner here</span>}
 
         <br/>
-        <button onClick={this.togglePlay.bind(this)}>{plays?'pause':'play'}</button> -||  
-        <button onClick={this.videoSpeed.bind(this, 2)}>rate x 2</button> -||
-        <button onClick={this.seek.bind(this)}>seek</button> ++ || ++
-        <button onClick={this.resize.bind(this)}>resize</button>
+        <button onClick={this.togglePlay.bind}>{plays?'pause':'play'}</button> -||  
+        <button onClick={partial(this.videoSpeed, 2)}>rate x 2</button> -||
+        <button onClick={this.seek.bind}>seek</button> ++ || ++
+        <button onClick={this.resize}>resize</button>
         <input className="main__input" defaultValue="30" type="number" min="0" max="60" step="1" 
           ref={s => this._seekInput = s}  />
         <br/>

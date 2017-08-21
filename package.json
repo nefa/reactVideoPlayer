@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "coffeescript": "^2.0.0-beta4",
+    "lodash": "^4.17.4",
     "react": "^15.6.1",
     "react-addons-create-fragment": "^15.6.0",
     "react-dom": "^15.6.1",
